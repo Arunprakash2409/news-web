@@ -1,0 +1,120 @@
+
+<!-- This is page is used to show the  news by the category's -->
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<!--news-->
+<div class="container-fluid pb-4 pt-4 paddding">
+    <div class="container paddding">
+        <div class="row mx-0">
+            <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
+                <!-- title-->
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">{{category.title}}</div>
+                </div>
+                {% for news in pg_num %}
+                <!--news boby-->
+                <div class="row pb-4">
+                    <div class="col-md-5">
+                        <div class="fh5co_hover_news_img">
+                            <div class="fh5co_news_img"><a href="/News/{{news.id}}/{{news.title}}" class="fh5co_news_img"><img src="/media/{{news.image}}" alt="{{news.title}}"/></a></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 animate-box">
+                        <a href="/News/{{news.id}}/{{news.title}}" class="fh5co_magna py-2"> {{news.title}} </a> <br>
+                        <a href="/category/{{news.category.id}}/{{news.category.title}}" class="fh5co_mini_time py-3">{{news.category}} --- {{news.add_time}} </a>
+                        <div class="fh5co_consectetur"> {{news.detail|truncatewords:30}}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+                <!-- category and tags-->
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Tags</div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="fh5co_tags_all">
+                    {% for data in sp_news %}
+                    <a href="/category/{{data.id}}/{{data.title}}" class="fh5co_tagg">{{data.title}}</a>
+                    {% endfor %}
+                </div>
+                <!-- recent news-->
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Recent News</div>
+                </div>
+                {% for news in recnt_news%}
+                <div class="row pb-3">
+                    <div class="col-5 align-self-center">
+                        <a href="/News/{{news.id}}/{{news.title}}">
+                            <img src="/media/{{news.image}}" alt="{{news.title}}" class="fh5co_most_trading"/>
+                        </a>
+                    </div>
+                    <div class="col-7 paddding">
+                       
+                        <div class="most_fh5co_treding_font"><a href="/News/{{news.id}}/{{news.title}}"> {{news.title}}</a></div>
+                        <div class="most_fh5co_treding_font_123"> {{news.category}}</div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!-- ad-->
+                <!-- 1-->
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                    <div class="single-banner">
+                        <a href="#">
+                            <img src="{% static 'ecom_products/images/banner/1_4.jpg' %}" alt="Li's Static Banner">
+                        </a>
+                    </div>
+                </div>
+                <!-- 2-->
+                <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                    <div class="single-banner">
+                        <a href="#">
+                            <img src="{% static 'ecom_products/images/banner/1_4.jpg' %}" alt="Li's Static Banner">
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+       <!--pages 1,2,...,n -->
+        <div class="row mx-0 animate-box pagination" data-animate-effect="fadeInUp">
+            <div class="col-11 text-center pb-4 pt-4">
+            <span class="step-links">
+                <a href="/index.html" class="btn_mange_pagging">Home</a>
+                {% if pg_num.has_previous %}
+                    <a href="?page={{ pg_num.previous_page_number }}" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
+                {% endif %}
+                <span class="current btn_mange_pagging">
+                    Now Page No : {{ pg_num.number }}
+                </span>
+                <span class="current btn_mange_pagging">
+                   Total pages : {{ pg_num.paginator.num_pages }}.
+                </span>
+                {% if pg_num.has_next %}
+                    <a href="?page={{ pg_num.next_page_number }}" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
+                {% endif %}
+            </span>
+         
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

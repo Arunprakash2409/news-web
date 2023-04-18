@@ -1,0 +1,387 @@
+
+<!-- This is page is used to show the index  -->
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--braking news -->
+<div class="container-fluid paddding mb-5">
+    <div class="row mx-0">
+        <div class="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
+            <!--big one -->
+            <!--Brakingnews uplode image-->
+            <div class="fh5co_suceefh5co_height">
+                <img src="media/{{first_news.image}}" alt="{{first_news.title}}"/>
+                <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                <div class="fh5co_suceefh5co_height_position_absolute_font">
+
+                    <!--Braking news uplode heading-->
+                    <div class=""><a href="News/{{first_news.id}}/{{first_news.title}}" class="fh5co_good_font">{{first_news.title}} </a></div>
+                    <!--Braking news uplode time-->
+                    <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{first_news.add_time}}
+                    </a></div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- next four breking news-->
+       
+        <div class="col-md-6">
+            <div class="row">
+                <!-- 2 braking news-->
+                {% for news in second_news %}
+                <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                    <div class="fh5co_suceefh5co_height_2">
+                        <!-- 2 braking news image-->
+                        <img src="media/{{news.image}}" alt="{{news.title}}"/>
+                        <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                        <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                            
+                            <!-- 2 braking news heading-->
+                            <div class=""><a href="News/{{news.id}}/{{news.title}}" class="fh5co_good_font_2"> {{news.title}} </a></div>
+
+                            <!-- 2 braking news date and time-->
+                            <div class=""><a href="#" class="color_fff"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{news.add_time}}</a></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Advesment 1 and 2 and 3-->
+
+<div class="li-static-banner">
+    <div class="container">
+        <div class="row">
+            <!-- Advesment 1 -->
+            <div class="col-lg-4 col-md-4 text-center">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_3.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 1 End Here -->
+
+            <!-- Advesment 2 -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_4.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 2 End Here -->
+
+            <!-- Advesment 3 -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_5.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 3 End Here -->
+        </div>
+    </div>
+</div>
+<!-- Advesment 1 and 2 and 3 end -->
+
+<!-- categorys top news or trending -->
+<div class="container-fluid pt-3">
+    <div class="container animate-box" data-animate-effect="fadeIn">
+        <!-- heding -->
+        <div>
+            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Category</div>
+        </div>
+        <div class="owl-carousel owl-theme js" id="slider1">
+            <!--1-->
+            {% for data in sp_news %}
+            
+            <div class=" item px-2">
+                <div class="fh5co_latest_trading_img_position_relative">
+                    <!-- news images-->
+                    <div class="fh5co_suceefh5co_height_2"><a href="/category/{{data.id}}/{{data.title}}" class="fh5co_latest_trading_img"> <img src="/media/{{data.category_image}}" alt="{{data.title}}"/></a></div>
+                    <div>
+                        <!--news title-->
+                        <a href="/category/{{data.id}}/{{data.title}}" class="d-block fh5co_small_post_heading"><span class="">{{data.title}}</span></a>
+                        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Advesment 1 and 2 and 3-->
+
+<div class="li-static-banner">
+    <div class="container">
+        <div class="row">
+            <!-- Advesment 1 -->
+            <div class="col-lg-4 col-md-4 text-center">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_3.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 1 End Here -->
+
+            <!-- Advesment 2 -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_4.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 2 End Here -->
+
+            <!-- Advesment 3 -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_5.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 3 End Here -->
+        </div>
+    </div>
+</div>
+<!-- Advesment 1 and 2 and 3 end -->
+
+<!--News category tytle -->
+
+<div class="container-fluid pb-4 pt-5">
+    <div class="container animate-box">
+        {% for category in cat_news %}
+            <!--News category tytle -->
+            <h3 class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">{{category.title}} <a href="/category/{{category.id}}/{{category.title}}" class="float-right btn btn-sm btn-dark"> See More </a></h3>
+            <!-- News -->
+            <div class=" row my-4" >
+                {% for news in category.news_set.all %}
+                {% if forloop.counter < 5 %}
+                    <div class="col-md-3 ">
+                        <div class="fh5co_hover_news_img">
+                            <!-- news images-->
+                            <div class="fh5co_news_img"><a href="News/{{news.id}}/{{news.title}}" class="fh5co_news_img"> <img src="/media/{{news.image}}" alt="{{news.title}}"/></a></div>
+                            <div>
+                                <!--news title-->
+                                <a href="News/{{news.id}}/{{news.title}}" class="d-block fh5co_small_post_heading"><span class="">{{news.title}}</span></a>
+                                <!--news date of publish-->
+                                <div class="c_g"><i class="fa fa-clock-o"></i> {{news.add_time}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+<!-- Advesment 1 and 2 and 3-->
+
+<div class="li-static-banner">
+    <div class="container">
+        <div class="row">
+            <!-- Advesment 1 -->
+            <div class="col-lg-4 col-md-4 text-center">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_3.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 1 End Here -->
+
+            <!-- Advesment 2 -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_4.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 2 End Here -->
+
+            <!-- Advesment 3 -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_5.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 3 End Here -->
+        </div>
+    </div>
+</div>
+<!-- Advesment 1 and 2 and 3 end -->
+
+
+
+
+
+<!-- all news -->
+<div class="container-fluid pb-4 pt-4 paddding">
+    <div class="container paddding">
+        <div class="row mx-0">
+            <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
+                <!--title-->
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
+                </div>
+                {% for all_news in pg_num %}
+
+                <div class="row pb-4">
+                    <!-- image-->
+                    <div class="col-md-5">
+                        <div class="fh5co_hover_news_img">
+                            <div class="fh5co_news_img"><a href="News/{{all_news.id}}/{{all_news.title}}" class="fh5co_news_img" ><img src="media/{{all_news.image}}" alt="{{all_news.title}}"/></a></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <!-- title-->
+                    <div class="col-md-7 animate-box">
+                        <a href="News/{{all_news.id}}/{{all_news.title}}" class="fh5co_magna py-2"> {{all_news.title}} </a> <br>
+                        <a href="/category/{{all_news.category.id}}/{{all_news.category.title}}" class="fh5co_mini_time py-3"> {{all_news.category}} --- {{all_news.add_time}} </a>
+                        <!-- small decreption -->
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- category or key word-->
+            <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Reviews Tags</div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="fh5co_tags_all">
+                    {% for data in sp_news %}
+                    <a href="/category/{{data.id}}/{{data.title}}" class="fh5co_tagg">{{data.title}}</a>
+                    {% endfor %}
+                </div>
+                
+
+
+                <!-- popular news-->
+                <!--title-->
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Recent news</div>
+                </div>
+                <!--1-->
+                {% for news in recnt_news%}
+                <div class="row pb-3">
+                    <div class="col-5 align-self-center">
+                        <a href="News/{{news.id}}/{{news.title}}">
+                            <img src="/media/{{news.image}}" alt="{{news.title}}" class="fh5co_most_trading"/>
+                        </a>
+                    </div>
+                    <div class="col-7 paddding">
+                       
+                        <div class="most_fh5co_treding_font"><a href="News/{{news.id}}/{{news.title}}"> {{news.title}}</a></div>
+                        <div class="most_fh5co_treding_font_123"> {{news.category}}</div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!-- Category's key words -->
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                    <div class="single-banner">
+                        <a href="#">
+                            <img src="{% static 'ecom_products/images/banner/1_4.jpg' %}" alt="Li's Static Banner">
+                        </a>
+                    </div>
+                </div>
+
+                
+               
+                
+                
+            </div>
+        </div>
+        <div><br></div>
+        <div><br></div>
+        <div><br></div><div><br></div>
+        <div></div>
+        <!--pages 1,2,...,n -->
+        <div class="row mx-0 animate-box pagination" data-animate-effect="fadeInUp">
+            <div class="col-11 text-center pb-4 pt-4">
+                <span class="step-links">
+                    <a href="/blog.html" class="btn_mange_pagging">See All News</a>
+                    {% if pg_num.has_previous %}
+                        <a href="?page={{ pg_num.previous_page_number }}" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
+                    {% endif %}
+                    <span class="current btn_mange_pagging">
+                        Now Page No : {{ pg_num.number }}
+                    </span>
+                    <span class="current btn_mange_pagging">
+                       Total pages : {{ pg_num.paginator.num_pages }}.
+                    </span>
+                    {% if pg_num.has_next %}
+                        <a href="?page={{ pg_num.next_page_number }}" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
+                    {% endif %}
+                </span>
+             
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Advesment 1 and 2 and 3-->
+
+<div class="li-static-banner">
+    <div class="container">
+        <div class="row">
+            <!-- Advesment 1 -->
+            <div class="col-lg-4 col-md-4 text-center">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_3.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 1 End Here -->
+
+            <!-- Advesment 2 -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_4.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 2 End Here -->
+
+            <!-- Advesment 3 -->
+            <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <div class="single-banner">
+                    <a href="#">
+                        <img src="{% static 'ecom_products/images/banner/1_5.jpg' %}" alt="Li's Static Banner">
+                    </a>
+                </div>
+            </div>
+            <!-- Advesment 3 End Here -->
+        </div>
+    </div>
+</div>
+<!-- Advesment 1 and 2 and 3 end -->
+
+{% endblock %}
